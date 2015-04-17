@@ -7,9 +7,11 @@ if ($_GET['ManageModels'] == "1"){
 <h1>Manage Switch Models</h1>
 <br/>
 <center>
-<p style="text-align: center; width: 175px; margin: 10px; height: 35px; line-height: 35px; font-size: 16px; vertical-align: middle; background: #000000; color: #FFFFFF;"><a style="color: #FFFFFF; text-decoration:none;" href="index.php?ManageModels=2&AddModel=1">Add Switch Model</a></p>
-<p style="text-align: center; width: 175px; margin: 10px; height: 35px; line-height: 35px; font-size: 16px; vertical-align: middle; background: #000000; color: #FFFFFF;"><a style="color: #FFFFFF; text-decoration:none;" href="index.php?ManageModels=2&ModifyModel=1">Modify Switch Model</a></p>
-<p style="text-align: center; width: 175px; margin: 10px; height: 35px; line-height: 35px; font-size: 16px; vertical-align: middle; background: #000000; color: #FFFFFF;"><a style="color: #FFFFFF; text-decoration:none;" href="index.php?ManageModels=2&DeleteModel=1">Delete Switch Model</a></p>
+    <p class="menu"><a class="menu" href="index.php?ManageModels=2&AddModel=1">Add Switch Model</a></p>
+
+    <p class="menu"><a class="menu" href="index.php?ManageModels=2&ModifyModel=1">Modify Switch Model</a></p>
+
+    <p class="menu"><a class="menu" href="index.php?ManageModels=2&DeleteModel=1">Delete Switch Model</a></p>
 </center>
 </div>
 <?php
@@ -26,12 +28,12 @@ if ($_GET['ManageModels'] == "2" and $_GET['AddModel'] == "1"){
 <form method="GET" action="index.php">
 <table style="width: 500px; margin: 0 auto;" cellspacing="1" cellpadding="2">
 <tr>
-<td style="background: #000000; color: #FFFFFF; font-size: 16px; font-weight: bold; width: 250px;">Model Number</td>
-<td style="width: 250px;"><input name="ModelNumber" type="text" id="ModelNumber" style="border: 1px solid #000000; width: 250px; padding: 5px; background-color: #EFEFEF;"></td>
+    <td class="tdheader">Model Number</td>
+    <td style="width: 250px;"><input name="ModelNumber" type="text" id="ModelNumber" class="text"></td>
 </tr>
 <tr>
-<td style="background: #000000; color: #FFFFFF; font-size: 16px; font-weight: bold; width: 250px;">Number of Slots</td>
-<td style="width: 250px;"><select name="NumSlots" style="border: 1px solid #000000; width: 250px; padding: 5px; background-color: #EFEFEF;">
+    <td class="tdheader">Number of Slots</td>
+    <td style="width: 250px;"><select name="NumSlots" class="text">
 <option selected="" value="3">3</option><option value="6">6</option>
 <option value="9">9</option><option value="13">13</option></select></td>
 </tr>
@@ -40,7 +42,7 @@ if ($_GET['ManageModels'] == "2" and $_GET['AddModel'] == "1"){
 <td>
 <input name="ManageModels" value="2" type="hidden" />
 <input name="AddModel" value="2" type="hidden" />
-<input name="submit" type="submit" value="Submit" style="background-color: #000000; color: #FFFFFF; padding: 10px;">
+    <input name="submit" type="submit" value="Submit" class="submit">
 </td>
 </tr>
 </table>
@@ -97,7 +99,7 @@ $sql = "SELECT * FROM Models ORDER BY ModelNumber ASC";
 <br/>
 <form method="GET" action="index.php">
 <p>Please select the Cisco Chassis Model from the list below which you would like to modify:</p>
-<select name="ID" style="border: 1px solid #000000; width: 250px; padding: 5px; background-color: #EFEFEF;">
+    <select name="ID" class="text">
 <?php 
 $result = mysql_query($sql);
 while ($row = mysql_fetch_assoc($result)) {
@@ -109,7 +111,7 @@ echo '<option value="'.$row["ID"].'">'
 <br/>
 <input name="ManageModels" value="2" type="hidden" />
 <input name="ModifyModel" value="2" type="hidden" />
-<input name="submit" type="submit" value="Submit" style="background-color: #000000; color: #FFFFFF; padding: 10px; margin: 10px;">
+    <input name="submit" type="submit" value="Submit" class="submit">
 </form>
 </center>
 </div>
@@ -140,19 +142,20 @@ $OldNumSlots = $row['NumSlots'];
 <table width="750px" border="0" cellspacing="1" cellpadding="2">
 <tr>
 <tr style="background: #000000; color: #FFFFFF; font-size: 16px; font-weight: bold;">
-<td style="background: #000000; color: #FFFFFF; font-size: 16px; font-weight: bold; width: 250px;">Setting</td>
-<td style="background: #000000; color: #FFFFFF; font-size: 16px; font-weight: bold; width: 250px;">Old Value</td>
-<td style="background: #000000; color: #FFFFFF; font-size: 16px; font-weight: bold; width: 250px;">New Value</td>
+        <td class="tdheader">Setting</td>
+        <td class="tdheader">Old Value</td>
+        <td class="tdheader">New Value</td>
 </tr>
 <tr>
-<td style="background: #000000; color: #FFFFFF; font-size: 16px; font-weight: bold; width: 250px;">Model Number</td>
+    <td class="tdheader">Model Number</td>
 <td style="width: 250px;"><?php echo $OldModelNumber ?></td>
-<td style="width:250px;"><input name="ModelNumber" type="text" value="<?php echo $OldModelNumber ?>" id="ModelNumber" style="border: 1px solid #000000; width: 160px; padding: 5px; background-color: #EFEFEF;"></td>
+    <td style="width:250px;"><input name="ModelNumber" type="text" value="<?php echo $OldModelNumber ?>"
+                                    id="ModelNumber" class="text"></td>
 </tr>
 <tr>
-<td style="background: #000000; color: #FFFFFF; font-size: 16px; font-weight: bold; width: 250px;">Number of Slots</td>
+    <td class="tdheader">Number of Slots</td>
 <td style="width: 250px;"><?php echo $OldNumSlots ?></td>
-<td style="width: 250px;"><select name="NumSlots" style="border: 1px solid #000000; width: 250px; padding: 5px; background-color: #EFEFEF;">
+    <td style="width: 250px;"><select name="NumSlots" class="text">
 <option selected="" value="3">3</option><option value="6">6</option>
 <option value="9">9</option><option value="13">13</option></select></td>
 </tr>
@@ -162,7 +165,7 @@ $OldNumSlots = $row['NumSlots'];
 <input name="ID" value="<?php echo $ID ?>" type="hidden" />
 <input name="ManageModels" value="2" type="hidden" />
 <input name="ModifyModel" value="3" type="hidden" />
-<input name="submit" type="submit" value="Submit" style="background-color: #000000; color: #FFFFFF; padding: 10px;">
+    <input name="submit" type="submit" value="Submit" class="submit">
 </td>
 </tr>
 </table>
@@ -224,7 +227,7 @@ echo '<option value="'.$row["ID"].'">'
 <br/>
 <input name="ManageModels" value="2" type="hidden" />
 <input name="DeleteModel" value="2" type="hidden" />
-<input name="submit" type="submit" value="Submit" style="background-color: #000000; color: #FFFFFF; padding: 10px; margin: 10px;">
+    <input name="submit" type="submit" value="Submit" class="submit">
 </form>
 </div>
 <?php

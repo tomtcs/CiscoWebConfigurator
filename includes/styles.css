@@ -1,0 +1,193 @@
+body, div, h1, h1, h3, h4, h5, h6, p, ul, ol, li, dl, dt, dd, img, form, fieldset, input, textarea, blockquote {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+body {
+    background: #4b5f67;
+    font-family: Helvetica, sans-serif;
+    font-size: 16px;
+    line-height: 18px;
+    color: #000000;
+    min-height: 100%;
+    height: 100%;
+}
+
+.container {
+    width: 1000px;
+    margin: 0 auto;
+}
+
+nav {
+    margin: 20px auto;
+    text-align: center;
+}
+
+nav ul ul {
+    display: none;
+}
+
+nav ul li:hover > ul {
+    display: block;
+}
+
+nav ul {
+    background: #efefef;
+    background: linear-gradient(top, #efefef 0%, #bbbbbb 100%);
+    background: -moz-linear-gradient(top, #efefef 0%, #bbbbbb 100%);
+    background: -webkit-linear-gradient(top, #efefef 0%, #bbbbbb 100%);
+    box-shadow: 0px 0px 9px rgba(0, 0, 0, 0.15);
+    padding: 0 20px;
+    border-radius: 10px;
+    list-style: none;
+    position: relative;
+    display: inline-table;
+}
+
+nav ul:after {
+    content: "";
+    clear: both;
+    display: block;
+}
+
+nav ul li {
+    float: left;
+    width: 150px;
+}
+
+nav ul li:hover {
+    background: #4b5f67;
+    background: linear-gradient(top, #4b5f67 0%, #5f6975 40%);
+    background: -moz-linear-gradient(top, #4b5f67 0%, #5f6975 40%);
+    background: -webkit-linear-gradient(top, #4b5f67 0%, #5f6975 40%);
+}
+
+nav ul li:hover a {
+    color: #fff;
+}
+
+nav ul li a {
+    display: block;
+    padding: 10px 20px;
+    color: #000000;
+    text-decoration: none;
+}
+
+nav ul ul {
+    background: #5f6975;
+    border-radius: 0px;
+    padding: 0;
+    position: absolute;
+    top: 100%;
+}
+
+nav ul ul li {
+    float: none;
+    border-top: 1px solid #6b727c;
+    border-bottom: 1px solid #575f6a;
+    position: relative;
+}
+
+nav ul ul li a {
+    padding: 5px 10px;
+    color: #fff;
+}
+
+nav ul ul li a:hover {
+    background: #4b5f67;
+}
+
+nav ul ul ul {
+    position: absolute;
+    left: 100%;
+    top: 0;
+}
+
+#content {
+    width: 800px;
+    background: #FFFFFF;
+    border: 2px solid #000000;
+    margin: 10px auto;
+    padding: 10px;
+    font-size: 12px;
+    overflow: auto;
+    height: 620px;
+    text-align: center;
+}
+
+#footercontainer {
+    position: fixed;
+    bottom: 20px;
+    margin: 10px auto;
+    width: 100%;
+    padding-top: 20px
+}
+
+#footer {
+    border: 2px solid #000000;
+    margin: 0 auto;
+    padding: 20px;
+    background: #efefef;
+    background: linear-gradient(top, #efefef 0%, #bbbbbb 100%);
+    background: -moz-linear-gradient(top, #efefef 0%, #bbbbbb 100%);
+    background: -webkit-linear-gradient(top, #efefef 0%, #bbbbbb 100%);
+    box-shadow: 0px 0px 9px rgba(0, 0, 0, 0.15);
+    padding: 0 20px;
+    border-radius: 10px;
+    min-height: 50px;
+    width: 600px;
+    color: #000000;
+}
+
+td.tdheader {
+    background: #4b5f67;
+    background: linear-gradient(top, #4b5f67 0%, #5f6975 40%);
+    background: -moz-linear-gradient(top, #4b5f67 0%, #5f6975 40%);
+    background: -webkit-linear-gradient(top, #4b5f67 0%, #5f6975 40%);
+    box-shadow: 0px 0px 9px rgba(0, 0, 0, 0.15);
+    color: #FFFFFF;
+    font-size: 16px;
+    font-weight: bold;
+    width: 250px;
+    text-align: center;
+}
+
+input.text {
+    border: 1px solid #000000;
+    width: 160px;
+    padding: 5px;
+    background-color: #EFEFEF;
+}
+
+input.submit {
+    background: #4b5f67;
+    background: linear-gradient(top, #4b5f67 0%, #5f6975 40%);
+    background: -moz-linear-gradient(top, #4b5f67 0%, #5f6975 40%);
+    background: -webkit-linear-gradient(top, #4b5f67 0%, #5f6975 40%);
+    box-shadow: 0px 0px 9px rgba(0, 0, 0, 0.15);
+    color: #FFFFFF;
+    padding: 10px;
+    margin: 10px;
+}
+
+p.menu {
+    text-align: center;
+    width: 175px;
+    margin: 10px;
+    height: 35px;
+    line-height: 35px;
+    font-size: 16px;
+    vertical-align: middle;
+    background: #4b5f67;
+    background: linear-gradient(top, #4b5f67 0%, #5f6975 40%);
+    background: -moz-linear-gradient(top, #4b5f67 0%, #5f6975 40%);
+    background: -webkit-linear-gradient(top, #4b5f67 0%, #5f6975 40%);
+    box-shadow: 0px 0px 9px rgba(0, 0, 0, 0.15);
+    color: #FFFFFF;
+}
+
+a.menu {
+    color: #FFFFFF;
+    text-decoration: none;
+}

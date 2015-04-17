@@ -7,9 +7,11 @@ if ($_GET['ManageModules'] == "1"){
 <h1>Module Management</h1>
 <br/>
 <center>
-<p style="text-align: center; width: 150px; margin: 10px; height: 35px; line-height: 35px; font-size: 16px; vertical-align: middle; background: #000000; color: #FFFFFF;"><a style="color: #FFFFFF; text-decoration:none;" href="index.php?ManageModules=2&AddModule=1">Add Module</a></p>
-<p style="text-align: center; width: 150px; margin: 10px; height: 35px; line-height: 35px; font-size: 16px; vertical-align: middle; background: #000000; color: #FFFFFF;"><a style="color: #FFFFFF; text-decoration:none;" href="index.php?ManageModules=2&ModifyModule=1">Modify Module</a></p>
-<p style="text-align: center; width: 150px; margin: 10px; height: 35px; line-height: 35px; font-size: 16px; vertical-align: middle; background: #000000; color: #FFFFFF;"><a style="color: #FFFFFF; text-decoration:none;" href="index.php?ManageModules=2&DeleteModule=1">Delete Module</a></p>
+    <p class="menu"><a class="menu" href="index.php?ManageModules=2&AddModule=1">Add Module</a></p>
+
+    <p class="menu"><a class="menu" href="index.php?ManageModules=2&ModifyModule=1">Modify Module</a></p>
+
+    <p class="menu"><a class="menu" href="index.php?ManageModules=2&DeleteModule=1">Delete Module</a></p>
 </center>
 </div>
 <?php
@@ -26,28 +28,33 @@ if ($_GET['ManageModules'] == "2" and $_GET['AddModule'] == "1"){
 <form method="GET" action="index.php">
 <table style="width: 500px; margin: 0 auto;" cellspacing="1" cellpadding="2">
 <tr>
-<td style="background: #000000; color: #FFFFFF; font-size: 16px; font-weight: bold; width: 250px;">Model Number</td>
-<td style="width: 250px;"><input name="ModelNumber" type="text" id="ModelNumber" style="border: 1px solid #000000; width: 250px; padding: 5px; background-color: #EFEFEF;"></td>
+    <td class="tdheader">Model Number</td>
+    <td style="width: 250px;"><input name="ModelNumber" type="text" id="ModelNumber" class="text"></td>
 </tr>
 <tr>
-<td style="background: #000000; color: #FFFFFF; font-size: 16px; font-weight: bold; width: 250px;">Description</td>
-<td style="width: 250px;"><input name="Description" type="text" id="Description" style="border: 1px solid #000000; width: 250px; padding: 5px; background-color: #EFEFEF;"></td>
+    <td class="tdheader">Description</td>
+    <td style="width: 250px;"><input name="Description" type="text" id="Description" class="text"></td>
 </tr>
 
 <tr>
-<td style="background: #000000; color: #FFFFFF; font-size: 16px; font-weight: bold; width: 250px;">Number of Ports</td>
-<td style="width: 250px;"><select name="NumPorts" style="border: 1px solid #000000; width: 250px; padding: 5px; background-color: #EFEFEF;">
+    <td class="tdheader">Number of Ports</td>
+    <td style="width: 250px;"><select name="NumPorts" class="text">
 <option selected="" value="0">0</option><option value="2">2</option>
 <option value="8">8</option><option value="16">16</option><option value="24">24</option>
 <option value="48">48</option></select></td>
 </tr>
 <tr>
-<td style="background: #000000; color: #FFFFFF; font-size: 16px; font-weight: bold; width: 250px;">Port Speed</td>
-<td style="width: 250px;"><select name="PortSpeed" style="border: 1px solid #000000; width: 250px; padding: 5px; background-color: #EFEFEF;"><option selected="" value="gigabitethernet">--select--</option><option value="fastethernet">100</option><option value="gigabitethernet">1000</option><option value="tengigabitethernet">10000</option></select></td>
+    <td class="tdheader">Port Speed</td>
+    <td style="width: 250px;"><select name="PortSpeed" class="text">
+            <option selected="" value="gigabitethernet">--select--</option>
+            <option value="fastethernet">100</option>
+            <option value="gigabitethernet">1000</option>
+            <option value="tengigabitethernet">10000</option>
+        </select></td>
 </tr>
 <tr>
-<td style="background: #000000; color: #FFFFFF; font-size: 16px; font-weight: bold; width: 250px;">PoE Capable</td>
-<td style="width: 250px;"><select name="PoE" style="border: 1px solid #000000; width: 250px; padding: 5px; background-color: #EFEFEF;">
+    <td class="tdheader">PoE Capable</td>
+    <td style="width: 250px;"><select name="PoE" class="text">
 <option selected="" value="0">--select--</option><option value="0">no</option><option value="1">yes</option></select></td>
 </tr>
 <tr>
@@ -55,7 +62,7 @@ if ($_GET['ManageModules'] == "2" and $_GET['AddModule'] == "1"){
 <td>
 <input name="ManageModules" value="2" type="hidden" />
 <input name="AddModule" value="2" type="hidden" />
-<input name="submit" type="submit" value="Submit" style="background-color: #000000; color: #FFFFFF; padding: 10px;">
+    <input name="submit" type="submit" value="Submit" class="submit">
 </td>
 </tr>
 </table>
@@ -111,7 +118,7 @@ $sql = "SELECT * FROM Modules ORDER BY ModelNumber ASC";
 <br/>
 <form method="GET" action="index.php">
 <p>Please select the Cisco Module item from the list below which you would like to modify:</p>
-<select name="ID" style="border: 1px solid #000000; width: 250px; padding: 5px; background-color: #EFEFEF;">
+    <select name="ID" class="text">
 <?php 
 $result = mysql_query($sql);
 while ($row = mysql_fetch_assoc($result)) {
@@ -123,7 +130,7 @@ echo '<option value="'.$row["ID"].'">'
 <br/>
 <input name="ManageModules" value="2" type="hidden" />
 <input name="ModifyModule" value="2" type="hidden" />
-<input name="submit" type="submit" value="Submit" style="background-color: #000000; color: #FFFFFF; padding: 10px; margin: 10px;">
+    <input name="submit" type="submit" value="Submit" class="submit">
 </form>
 </center>
 </div>
@@ -155,37 +162,44 @@ $OldPoE = $row['PoE'];
 <table width="750px" border="0" cellspacing="1" cellpadding="2">
 <tr>
 <tr style="background: #000000; color: #FFFFFF; font-size: 16px; font-weight: bold;">
-<td style="background: #000000; color: #FFFFFF; font-size: 16px; font-weight: bold; width: 250px;">Setting</td>
-<td style="background: #000000; color: #FFFFFF; font-size: 16px; font-weight: bold; width: 250px;">Old Value</td>
-<td style="background: #000000; color: #FFFFFF; font-size: 16px; font-weight: bold; width: 250px;">New Value</td>
+        <td class="tdheader">Setting</td>
+        <td class="tdheader">Old Value</td>
+        <td class="tdheader">New Value</td>
 </tr>
 <tr>
-<td style="background: #000000; color: #FFFFFF; font-size: 16px; font-weight: bold; width: 250px;">Model Number</td>
+    <td class="tdheader">Model Number</td>
 <td style="width: 250px;"><?php echo $OldModelNumber ?></td>
-<td style="width:250px;"><input name="ModelNumber" type="text" value="<?php echo $OldModelNumber ?>" id="ModelNumber" style="border: 1px solid #000000; width: 160px; padding: 5px; background-color: #EFEFEF;"></td>
+    <td style="width:250px;"><input name="ModelNumber" type="text" value="<?php echo $OldModelNumber ?>"
+                                    id="ModelNumber" class="text"></td>
 </tr>
 <tr>
-<td style="background: #000000; color: #FFFFFF; font-size: 16px; font-weight: bold; width: 250px;">Description</td>
+    <td class="tdheader">Description</td>
 <td style="width: 250px;"><?php echo $OldDescription ?></td>
-<td style="width:250px;"><input name="Description" type="text" value="<?php echo $OldDescription ?>" id="Description" style="border: 1px solid #000000; width: 160px; padding: 5px; background-color: #EFEFEF;"></td>
+    <td style="width:250px;"><input name="Description" type="text" value="<?php echo $OldDescription ?>"
+                                    id="Description" class="text"></td>
 </tr>
 <tr>
-<td style="background: #000000; color: #FFFFFF; font-size: 16px; font-weight: bold; width: 250px;">Number of Ports</td>
+    <td class="tdheader">Number of Ports</td>
 <td style="width: 250px;"><?php echo $OldNumPorts ?></td>
-<td style="width: 250px;"><select name="NumPorts" style="border: 1px solid #000000; width: 250px; padding: 5px; background-color: #EFEFEF;">
+    <td style="width: 250px;"><select name="NumPorts" class="text">
 <option selected="" value="0">0</option><option value="2">2</option>
 <option value="8">8</option><option value="16">16</option><option value="24">24</option>
 <option value="48">48</option></select></td>
 </tr>
 <tr>
-<td style="background: #000000; color: #FFFFFF; font-size: 16px; font-weight: bold; width: 250px;">Port Speed</td>
+    <td class="tdheader">Port Speed</td>
 <td style="width: 250px;"><?php echo $OldPortSpeed ?></td>
-<td style="width: 250px;"><select name="PortSpeed" style="border: 1px solid #000000; width: 250px; padding: 5px; background-color: #EFEFEF;"><option selected="" value="gigabitethernet">--select--</option><option value="fastethernet">100</option><option value="gigabitethernet">1000</option><option value="tengigabitethernet">10000</option></select></td>
+    <td style="width: 250px;"><select name="PortSpeed" class="text">
+            <option selected="" value="gigabitethernet">--select--</option>
+            <option value="fastethernet">100</option>
+            <option value="gigabitethernet">1000</option>
+            <option value="tengigabitethernet">10000</option>
+        </select></td>
 </tr>
 <tr>
-<td style="background: #000000; color: #FFFFFF; font-size: 16px; font-weight: bold; width: 250px;">PoE Capable</td>
+    <td class="tdheader">PoE Capable</td>
 <td style="width: 250px;"><?php echo $OldPoE ?></td>
-<td style="width: 250px;"><select name="PoE" style="border: 1px solid #000000; width: 250px; padding: 5px; background-color: #EFEFEF;">
+    <td style="width: 250px;"><select name="PoE" class="text">
 <option selected="" value="0">--select--</option><option value="0">no</option><option value="1">yes</option></select></td>
 </tr>
 <tr>
@@ -194,7 +208,7 @@ $OldPoE = $row['PoE'];
 <input name="ID" value="<?php echo $ID ?>" type="hidden" />
 <input name="ManageModules" value="2" type="hidden" />
 <input name="ModifyModule" value="3" type="hidden" />
-<input name="submit" type="submit" value="Submit" style="background-color: #000000; color: #FFFFFF; padding: 10px;">
+    <input name="submit" type="submit" value="Submit" class="submit">
 </td>
 </tr>
 </table>
@@ -260,7 +274,7 @@ echo '<option value="'.$row["ID"].'">'
 <br/>
 <input name="ManageModules" value="2" type="hidden" />
 <input name="DeleteModule" value="2" type="hidden" />
-<input name="submit" type="submit" value="Submit" style="background-color: #000000; color: #FFFFFF; padding: 10px; margin: 10px;">
+    <input name="submit" type="submit" value="Submit" class="submit">
 </form>
 </div>
 <?php
